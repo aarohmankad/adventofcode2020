@@ -3,10 +3,7 @@ const fs = require('fs');
 function validatePasswordPart1(item) {
   const min = item.policy.split('-')[0];
   const max = item.policy.split('-')[1];
-  let count = 0;
-  for (const letter of item.password) {
-    count += letter === item.letter;
-  }
+  let count = item.password.split(item.letter).length - 1;
   return min <= count && count <= max;
 }
 

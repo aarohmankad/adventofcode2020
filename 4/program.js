@@ -12,6 +12,8 @@ function validateCreds(creds, policy) {
 				console.log('failed: ', field);
 			}
 			necessaryFields.delete(field);
+		} else if (field !== 'cid') {
+			valid = false;
 		}
 	}
 

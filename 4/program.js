@@ -3,13 +3,12 @@ const fs = require('fs');
 function validateCreds(creds, policy) {
 	let valid = true;
 	let necessaryFields = new Set(Object.keys(policy));
-	const cleanCreds = creds.split(/\s+/).filter(n => n.length);
+	const cleanCreds = creds.split(/\s+/);
 	for (const cred of cleanCreds) {
 		const [field, value] = cred.split(':');
 		if (policy[field]) {
 			if (!policy[field](value)) {
 				valid = false;
-				console.log('failed: ', field);
 			}
 			necessaryFields.delete(field);
 		} else if (field !== 'cid') {
@@ -17,11 +16,6 @@ function validateCreds(creds, policy) {
 		}
 	}
 
-	if (!valid || necessaryFields.size) {
-		console.log('valid: ', valid);
-		console.log('necessaryFields: ', necessaryFields.size);
-		console.log(cleanCreds);
-	}
 	return valid && !necessaryFields.size;
 }
 

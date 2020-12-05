@@ -36,9 +36,15 @@ const policy = {
 	hgt: value => {
 		if (value.endsWith('cm')) {
 			const number = parseInt(value.substring(0, value.length - 2));
+			if (number === NaN) {
+				return false;
+			}
 			return 150 <= number && number <= 193;
 		} else if (value.endsWith('in')) {
 			const number = parseInt(value.substring(0, value.length - 2));
+			if (number === NaN) {
+				return false;
+			}
 			return 59 <= number && number <= 76;
 		}
 		return false;

@@ -26,9 +26,12 @@ function threeSum(numbers) {
   return -1;
 }
 
-let buffer = fs.readFileSync(__dirname + "/input");
-const numbers =
-    buffer.toString().split('\n').filter(n => n.length).map(n => parseInt(n));
+let buffer = fs.readFileSync(__dirname + '/input');
+const numbers = buffer
+  .toString()
+  .split('\n')
+  .filter(n => n.length)
+  .map(n => parseInt(n));
 
 console.log(twoSum(numbers));
 console.log(threeSum(numbers));

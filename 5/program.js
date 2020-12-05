@@ -48,6 +48,9 @@ for (const line of lines) {
 }
 console.log('Part 1: ', max);
 
-// console.log(getSeatId('BFFFBBFRRR'));
-// console.log(getSeatId('FFFBBBFRRR'));
-// console.log(getSeatId('BBFFBBFRLL'));
+seatIds.sort();
+for (let i = 0; i < seatIds.length - 1; i++) {
+	if (seatIds[i] + 2 === seatIds[i + 1]) {
+		console.log('Part 2: ', seatIds[i] + 1);
+	}
+}

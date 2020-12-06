@@ -12,9 +12,10 @@ function getAnswered(line) {
 			}
 		}
 	}
+
 	let count = 0;
-	for (const key of Object.keys(map)) {
-		count += map[key] === forms.length;
+	for (const qCount of Object.values(map)) {
+		count += qCount === forms.length;
 	}
 	return count;
 }

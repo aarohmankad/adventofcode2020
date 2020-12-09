@@ -18,6 +18,8 @@ function subarraySum(numbers, goal) {
 		for (let j = i + 1; j < numbers.length; j++) {
 			if (sum(i, j) === goal) {
 				return [i, j];
+			} else if (sum(i, j) > goal) {
+				break;
 			}
 		}
 	}
